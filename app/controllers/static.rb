@@ -1,24 +1,28 @@
 enable :sessions
 
+###new
 get '/' do
   erb :"static/index"
 end
 
-get '/signup' do
+###new
+get '/users/new' do
 	erb :"static/signup"
 end
 
 
-post '/signup' do
+###create
+post '/users' do
 	user = User.new(params[:user])
 	if user.save
-		redirect "user_profile/#{user.id}"
+		redirect "/users/#{user.id}"
 	else
 		erb :"static/index"
 	end
 end
 
-get "/user_profile/:id" do
+###show
+get "/users/:id" do
 	id = params[:id]
 	@user = User.find(id)
 	erb :"static/user_profile"
