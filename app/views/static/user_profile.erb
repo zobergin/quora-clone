@@ -1,0 +1,8 @@
+
+<h1> Welcome to your account, <%= @user.name %> </h1>
+
+
+<form method="post" action="/sessions/:id">
+    <input id="hidden" type="hidden" name="_method" value="delete"></br>
+    <input type="submit" value="Logout">
+</form>
